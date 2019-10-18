@@ -24,6 +24,16 @@
    return next();
  }
 
+ function logrequest(req,res,next){
+   numberOfRequest ++;
+
+   console.log(`Numero de requisições: ${numberOfRequest}`);
+
+   return next();
+
+ }
+ server.use(logrequest);
+
  server.get('/projects',(req,res)=>{
    return res.json(projects);
  });
